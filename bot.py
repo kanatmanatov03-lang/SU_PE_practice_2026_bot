@@ -9,7 +9,12 @@ from telegram.ext import (
     filters,
 )
 
-from config import TOKEN
+import os
+
+try:
+    from config import TOKEN
+except ModuleNotFoundError:
+    TOKEN = os.getenv("TOKEN")
 
 
 # Загружаем Excel
